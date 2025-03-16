@@ -1,11 +1,7 @@
-# Welcome to your CDK TypeScript project
+## テスト用のCDKプロジェクト
+リソースが作成されること確認済み
 
-This is a blank project for CDK development with TypeScript.
-
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
-
-## Useful commands
-
+## コマンド
 * `npm run build`   compile typescript to js
 * `npm run watch`   watch for changes and compile
 * `npm run test`    perform the jest unit tests
