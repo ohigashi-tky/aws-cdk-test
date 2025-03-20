@@ -1,0 +1,131 @@
+digraph "Diagram" {
+  splines = "ortho";
+  pad = "1.0";
+  nodesep = "0.60";
+  ranksep = "0.75";
+  fontname = "Sans-Serif";
+  fontsize = "15";
+  dpi = "200";
+  rankdir = "BT";
+  compound = "true";
+  fontcolor = "#222222";
+  edge [
+    color = "#D5871488",
+    penwidth = 2,
+    arrowhead = "dot",
+    arrowtail = "dot",
+  ];
+  node [
+    shape = "box",
+    style = "rounded",
+    fixedsize = true,
+    width = 1.7,
+    height = 1.7,
+    labelloc = "c",
+    imagescale = true,
+    fontname = "Sans-Serif",
+    fontsize = 8,
+    margin = 8,
+  ];
+  subgraph "AwsCdkTestStack" {
+    subgraph "cluster-SubGraph.AwsCdkTestStack" {
+      graph [
+        label = "AwsCdkTestStack",
+        labelloc = "b",
+        labeljust = "l",
+        margin = "10",
+        fontsize = "16",
+        penwidth = "2",
+        pencolor = "#888888",
+        style = "filled,rounded",
+        fillcolor = "#e4e4e4",
+      ];
+      "AwsCdkTestStack/TestVpc" [
+        label = " TestVpc",
+        fontsize = 12,
+        image = "/Users/takuya/Library/pnpm/global/5/.pnpm/cdk-dia@0.11.0_@aws-cdk+cloud-assembly-schema@1.204.0_@aws-cdk+cx-api@1.204.0_@aws-cdk+_8040ed3ba7753995700c6d681dbbdfd8/node_modules/cdk-dia/icons/aws/Service/Arch_Networking-Content/64/Arch_Amazon-Virtual-Private-Cloud_64@5x.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 2,
+        height = 2.266,
+      ];
+      "AwsCdkTestStack/SecurityGroup" [
+        label = " SecurityGroup",
+        fontsize = 12,
+        image = "/Users/takuya/Library/pnpm/global/5/.pnpm/cdk-dia@0.11.0_@aws-cdk+cloud-assembly-schema@1.204.0_@aws-cdk+cx-api@1.204.0_@aws-cdk+_8040ed3ba7753995700c6d681dbbdfd8/node_modules/cdk-dia/icons/aws/security_group.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 2,
+        height = 2.266,
+      ];
+      "AwsCdkTestStack/TestEC2Server" [
+        label = " TestEC2Server",
+        fontsize = 12,
+        image = "/Users/takuya/Library/pnpm/global/5/.pnpm/cdk-dia@0.11.0_@aws-cdk+cloud-assembly-schema@1.204.0_@aws-cdk+cx-api@1.204.0_@aws-cdk+_8040ed3ba7753995700c6d681dbbdfd8/node_modules/cdk-dia/icons/aws/Resource/Res_Compute/Res_48_Dark/Res_Amazon-EC2_T2-Instance_48_Dark.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 2,
+        height = 2.266,
+      ];
+      "AwsCdkTestStack/DatabaseSecurityGroup" [
+        label = "\nDatabaseSecurityGroup",
+        fontsize = 12,
+        image = "/Users/takuya/Library/pnpm/global/5/.pnpm/cdk-dia@0.11.0_@aws-cdk+cloud-assembly-schema@1.204.0_@aws-cdk+cx-api@1.204.0_@aws-cdk+_8040ed3ba7753995700c6d681dbbdfd8/node_modules/cdk-dia/icons/aws/security_group.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 2,
+        height = 2.4819999999999998,
+      ];
+      "AwsCdkTestStack/TestRDSInstance" [
+        label = " TestRDSInstance",
+        fontsize = 12,
+        image = "/Users/takuya/Library/pnpm/global/5/.pnpm/cdk-dia@0.11.0_@aws-cdk+cloud-assembly-schema@1.204.0_@aws-cdk+cx-api@1.204.0_@aws-cdk+_8040ed3ba7753995700c6d681dbbdfd8/node_modules/cdk-dia/icons/aws/Resource/Res_Compute/Res_48_Dark/Res_Amazon-EC2_T3-Instance_48_Dark.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 2,
+        height = 2.266,
+      ];
+    }
+  }
+  "AwsCdkTestStack/SecurityGroup" -> "AwsCdkTestStack/TestVpc" [
+    dir = "both",
+  ];
+  "AwsCdkTestStack/TestEC2Server" -> "AwsCdkTestStack/TestVpc" [
+    dir = "both",
+  ];
+  "AwsCdkTestStack/TestEC2Server" -> "AwsCdkTestStack/SecurityGroup" [
+    dir = "both",
+  ];
+  "AwsCdkTestStack/DatabaseSecurityGroup" -> "AwsCdkTestStack/TestVpc" [
+    dir = "both",
+  ];
+  "AwsCdkTestStack/DatabaseSecurityGroup" -> "AwsCdkTestStack/SecurityGroup" [
+    dir = "both",
+  ];
+  "AwsCdkTestStack/TestRDSInstance" -> "AwsCdkTestStack/TestVpc" [
+    dir = "both",
+  ];
+  "AwsCdkTestStack/TestRDSInstance" -> "AwsCdkTestStack/DatabaseSecurityGroup" [
+    dir = "both",
+  ];
+}
